@@ -68,13 +68,12 @@ def lif_metadata_string_size(filename):
 
     References
     ----------
-    [1] https://github.com/CellProfiler/python-bioformats/issues/8
+    [1] https://github.com/CellProfiler/python-bioformats/issues/8#issuecomment-43884388
     """
     with open(filename, 'rb') as fd:
         fd.read(9)
         length = np.frombuffer(fd.read(4), "<i4")[0]
         return length
-
 
 def parse_xml_metadata(xml_string, array_order=DEFAULT_DIM_ORDER):
     """Get interesting metadata from the LIF file XML string.
